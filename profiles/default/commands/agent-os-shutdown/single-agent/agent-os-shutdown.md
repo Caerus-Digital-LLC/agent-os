@@ -53,6 +53,12 @@ Use this structure:
 **Last Updated:** [current date and time]
 **Current Branch:** [git branch name]
 
+## Persistent Coding Instructions
+
+**⚠️ IMPORTANT: This section must be preserved across all shutdowns. Never overwrite or remove this section.**
+
+[User's persistent coding preferences and instructions - this section is preserved from previous RESTART.md if it exists]
+
 ## Current Work Summary
 [Brief overview of what you were doing - 2-3 sentences]
 
@@ -100,9 +106,11 @@ Use this structure:
    - Review product documentation status
 
 3. **Create/Update RESTART.md**
+   - **CRITICAL:** If RESTART.md exists, extract and preserve the entire "## Persistent Coding Instructions" section
    - Create `RESTART.md` in project root if it doesn't exist
-   - Update it if it already exists
-   - Include all relevant context from your analysis
+   - When updating an existing file, preserve the "Persistent Coding Instructions" section exactly as written
+   - If no "Persistent Coding Instructions" section exists, create it with a placeholder for the user to fill in
+   - Include all relevant context from your analysis in the other sections
    - Be comprehensive but concise
    - Use clear, actionable language
    - Include specific file paths and commands
@@ -135,8 +143,10 @@ When you're ready to resume work:
 ### Important Notes
 
 - Create RESTART.md in the project root directory
+- **CRITICAL:** Always preserve the "## Persistent Coding Instructions" section exactly as written when updating RESTART.md
+- The "Persistent Coding Instructions" section contains user preferences that must never be overwritten
 - Be thorough - capture everything needed to resume work efficiently
 - Include timestamps to track when the snapshot was created
 - Make next steps specific and actionable
-- If updating existing RESTART.md, preserve important historical context
+- If updating existing RESTART.md, preserve the persistent section and other important historical context
 - Ask the user to share output from git commands if needed

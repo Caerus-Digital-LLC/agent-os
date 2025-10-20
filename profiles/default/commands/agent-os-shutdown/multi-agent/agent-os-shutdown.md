@@ -51,6 +51,12 @@ Structure the `RESTART.md` file with clear sections and markdown formatting:
 **Last Updated:** [timestamp]
 **Current Branch:** [branch name]
 
+## Persistent Coding Instructions
+
+**⚠️ IMPORTANT: This section must be preserved across all shutdowns. Never overwrite or remove this section.**
+
+[User's persistent coding preferences and instructions - this section is preserved from previous RESTART.md if it exists]
+
 ## Current Work Summary
 [Brief overview of what you were doing]
 
@@ -97,9 +103,11 @@ Structure the `RESTART.md` file with clear sections and markdown formatting:
    - Review product documentation
 
 3. **Create/Update RESTART.md**
+   - **CRITICAL:** If RESTART.md exists, extract and preserve the entire "## Persistent Coding Instructions" section
    - Create `RESTART.md` in project root if it doesn't exist
-   - Update it if it already exists
-   - Include all relevant context from your analysis
+   - When updating an existing file, preserve the "Persistent Coding Instructions" section exactly as written
+   - If no "Persistent Coding Instructions" section exists, create it with a placeholder for the user to fill in
+   - Include all relevant context from your analysis in the other sections
    - Be comprehensive but concise
    - Use clear, actionable language
 
@@ -128,8 +136,10 @@ When you're ready to resume work, use the `/agent-os-restart` command to pick up
 ## Implementation Notes
 
 - Always create RESTART.md in the project root, not in any subdirectory
+- **CRITICAL:** Always preserve the "## Persistent Coding Instructions" section exactly as written when updating RESTART.md
+- The "Persistent Coding Instructions" section contains user preferences that must never be overwritten
 - Be thorough - capture everything that would help resume work efficiently
 - Use timestamps to track when the snapshot was created
 - Include both high-level context and specific details
 - Make next steps actionable and specific
-- If there's an existing RESTART.md, preserve important historical context while updating current state
+- If there's an existing RESTART.md, preserve the persistent section and other important historical context while updating current state
