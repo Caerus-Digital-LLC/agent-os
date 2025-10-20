@@ -1,0 +1,14 @@
+## General development conventions
+- **Consistent Project Structure**: Organize files and directories in a predictable, logical structure that team members can navigate easily. Folder structure should have the following default folders: 
+    - Infrastructure: General Code
+    - Views: for the UI specific code
+    - Models: for the Model specific code
+    - Controllers: For the logic that controls the views
+- **Class and Struct Generation**: Organize new class and struct objects in their own files. Every new class or struct object, or any major Type shoul dbe given its own file and placed in the folder stucture as outlined above. The views should not contain any logci beyond what's necessary for the view. the functionality of the Views should be placed into a controller. Each view doesn't need its own controller, if you can extract functionality for a view and all its sub views, only the higher level views need a controller and can be used throughout all the sub views. But break up the controllers logically. dont create one Giant View controller for the entire project.
+- **Clear Documentation**: Maintain up-to-date README files with setup instructions, architecture overview, and contribution guidelines
+- **Version Control Best Practices**: Use clear commit messages, feature branches, and meaningful pull/merge requests with descriptions
+- **Dependency Management**: Keep dependencies up-to-date and minimal; document why major dependencies are used
+- **Code Review Process**: Establish a consistent code review process with clear expectations for reviewers and authors
+- **Testing Requirements**: Define what level of testing is required before merging (unit tests, integration tests, etc.)
+- **Feature Flags**: Use feature flags for incomplete features rather than long-lived feature branches
+- **Changelog Maintenance**: Keep a changelog or release notes to track significant changes and improvements
