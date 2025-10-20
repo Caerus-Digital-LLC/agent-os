@@ -106,7 +106,11 @@ Structure the `RESTART.md` file with clear sections and markdown formatting:
    - **CRITICAL:** If RESTART.md exists, extract and preserve the entire "## Persistent Coding Instructions" section
    - Create `RESTART.md` in project root if it doesn't exist
    - When updating an existing file, preserve the "Persistent Coding Instructions" section exactly as written
-   - If no "Persistent Coding Instructions" section exists, create it with a placeholder for the user to fill in
+   - If no "Persistent Coding Instructions" section exists in RESTART.md:
+     - Check if `agent-os/standards/global/conventions.md` exists
+     - If it does, extract the key organizational principles (File Organization, Project Folder Structure, DRY Principle, View Logic Separation, Code Reusability sections) and use them to populate the Persistent Coding Instructions section
+     - If conventions.md doesn't exist, create a basic placeholder section
+     - Add the warning: "**⚠️ IMPORTANT: This section must be preserved across all shutdowns. Never overwrite or remove this section.**"
    - Include all relevant context from your analysis in the other sections
    - Be comprehensive but concise
    - Use clear, actionable language
