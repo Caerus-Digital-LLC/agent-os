@@ -85,6 +85,19 @@ All views should use a **card-based section layout** with the following structur
    - Border: accent color at 0.2 opacity (or 0.4 when focused)
    - 8pt corner radius for nested elements
 
+### UI Design Consistency (Card Color Consistency)
+
+**⚠️ CRITICAL: Card Color Consistency Rule**
+
+**For card-based UI designs, ALL subviews within a card MUST use the SAME accent color as the card header:**
+- If a card header uses `.purple`, ALL subviews (buttons, rows, icons, accent bars, status indicators, backgrounds) within that card MUST use `.purple`
+- If a card header uses `.gray`, ALL subviews within that card MUST use `.gray`
+- NO mixing of colors within a single card (e.g., don't have purple, green, and orange subviews in a card with gray header)
+- Destructive actions (Delete, Sign Out) should use the card's accent color, NOT red/orange
+- Example: Settings card with gray header → all Filter Events, Auto-Sync, Offline Mode rows use gray
+- Example: Privacy card with purple header → Privacy Policy, Delete Account, Clear All Local Data all use purple
+- This rule applies to ALL color properties: accent bars, icon colors, status indicators, backgrounds, borders, and foreground styles
+
 ### Input Field Pattern
 
 **CustomTextField/CustomSecureField style:**
