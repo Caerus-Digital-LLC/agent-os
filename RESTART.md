@@ -46,6 +46,18 @@ Organize all code files according to this mandatory structure:
 - The governing view controller should contain all logic for its highest-level view AND all subviews
 - This ensures all code for a feature lives in one centralized location
 
+### UI Design Consistency (for SwiftUI Card-Based Layouts)
+
+**⚠️ CRITICAL: Card Color Consistency Rule**
+**For card-based UI designs, ALL subviews within a card MUST use the SAME accent color as the card header:**
+- If a card header uses `.purple`, ALL subviews (buttons, rows, icons, accent bars, status indicators, backgrounds) within that card MUST use `.purple`
+- If a card header uses `.gray`, ALL subviews within that card MUST use `.gray`
+- NO mixing of colors within a single card (e.g., don't have purple, green, and orange subviews in a card with gray header)
+- Destructive actions (Delete, Sign Out) should use the card's accent color, NOT red/orange
+- Example: Settings card with gray header → all Filter Events, Auto-Sync, Offline Mode rows use gray
+- Example: Privacy card with purple header → Privacy Policy, Delete Account, Clear All Local Data all use purple
+- This rule applies to ALL color properties: accent bars, icon colors, status indicators, backgrounds, borders, and foreground styles
+
 ### Code Reusability & Maintainability
 
 - Design code so that changing one thing affects all related components automatically
