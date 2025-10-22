@@ -53,3 +53,112 @@ Organize all code files according to this mandatory structure:
 - **Testing Requirements**: Define what level of testing is required before merging (unit tests, integration tests, etc.)
 - **Feature Flags**: Use feature flags for incomplete features rather than long-lived feature branches
 - **Changelog Maintenance**: Keep a changelog or release notes to track significant changes and improvements
+
+## UI Style Guide (Reference: OutTrack Project)
+
+**⚠️ MANDATORY UI PATTERNS - All new UI must follow this style:**
+
+### Card-Based Layout System
+
+All views should use a **card-based section layout** with the following structure:
+
+1. **Section Cards** (`.sectionCard(accentColor:)` modifier):
+   - White/light background cards on grouped background
+   - 12pt corner radius
+   - Subtle border with accent color opacity (0.2)
+   - 16px horizontal padding, 12px vertical padding
+   - 24px spacing between cards
+
+2. **Card Headers** (`CardHeader` component):
+   - Vertical accent bar (4px wide, 40px height) with gradient
+   - SF Symbol icon in accent color
+   - Title (subheadline, semibold) + Subtitle (caption, secondary)
+   - Small status indicator dot (6px circle, accent color at 0.3 opacity)
+   - Followed by `Divider()` before card content
+
+3. **Interactive Elements Inside Cards**:
+   - Mini vertical accent bar (3px wide, 30px height)
+   - SF Symbol icon (24px frame)
+   - Label/value text
+   - Status indicator dot
+   - Background: accent color at 0.05 opacity
+   - Border: accent color at 0.2 opacity (or 0.4 when focused)
+   - 8pt corner radius for nested elements
+
+### Input Field Pattern
+
+**CustomTextField/CustomSecureField style:**
+```
+[3px bar] [icon] [TextField] [status dot]
+```
+- Left accent bar: 3px × 30px
+- Icon: 24px frame, accent color
+- TextField: auto-expands
+- Right status dot: 6px circle at 0.3 opacity
+- Container: 12px horizontal padding, 10px vertical padding
+- Background: accent color at 0.05 opacity with border at 0.2 opacity (0.4 when focused)
+
+### Color System
+
+**Accent Colors by Purpose:**
+- `.blue` - Personal info, notifications, primary actions
+- `.green` - Health/wellness tracking, success states
+- `.orange` - Goals, warnings, targets
+- `.indigo` - Export/data operations
+- `Color.App.deepBlue` - CalDAV/sync operations (rgb: 0.0, 0.3, 0.65)
+
+**Background Colors:**
+- View background: `Color(.systemGroupedBackground)`
+- Card background: Adaptive light/dark with contrast
+- Secondary background: For nested elements
+
+### Consistent Visual Elements
+
+1. **Vertical Accent Bars**: Always 3-4px wide, various heights (24-40px)
+2. **Status Indicators**: 6px circles at 0.3 opacity of accent color
+3. **Corner Radius**: 12px for cards, 8-10px for nested elements
+4. **Spacing**: 24px between sections, 12px between items, 8px within items
+5. **Dividers**: Between header and content in each card
+
+### Layout Pattern
+
+```swift
+VStack(spacing: 24) {  // Main container
+    // Section 1
+    VStack(spacing: 12) {
+        CardHeader(icon:title:subtitle:accentColor:)
+        Divider()
+        // Content with nested components
+    }
+    .sectionCard(accentColor: .blue)
+
+    // Section 2
+    VStack(spacing: 12) {
+        CardHeader(...)
+        Divider()
+        // Content
+    }
+    .sectionCard(accentColor: .green)
+}
+.padding()  // Overall padding
+```
+
+### Text Styling
+
+- **Titles**: `.subheadline`, `.semibold`
+- **Subtitles**: `.caption`, `.secondary`
+- **Field Labels**: `.caption`, `.secondary`
+- **Values**: `.caption` or `.subheadline`, `.semibold` or `.bold`, accent color
+- **Body Text**: `.caption` for descriptions
+
+### DO NOT Use
+
+- ❌ Plain lists without card styling
+- ❌ Flat layouts without visual hierarchy
+- ❌ Inconsistent accent colors
+- ❌ Random spacing values
+- ❌ Missing status indicators
+- ❌ Sections without headers
+- ❌ Text fields without icons
+
+**When creating ANY new UI, reference `/Users/matthewelmore/Library/CloudStorage/Dropbox/DB_Main/02_Professional/03_Caerus/01_Code/01_Apps/OutTrack/OutTrack/Views/Tabs/ProfileTab/ProfileTabView.swift` as the gold standard.**
