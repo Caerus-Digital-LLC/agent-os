@@ -65,6 +65,32 @@ Organize all code files according to this mandatory structure:
 - Centralize control logic to avoid scattered, duplicated code across views
 - Think "change once, update everywhere" when writing any functionality
 
+### Project Configuration
+
+**⚠️ CRITICAL: Always check configuration files for company/bundle ID settings**
+
+**Global Configuration File:**
+- Location: `~/.claude-project-defaults.json` (in user's home directory)
+- This file contains global defaults for ALL projects
+- **MUST be checked at the start of every project**
+
+**Required Settings (NEVER use incorrect values):**
+- **Bundle ID Prefix:** `com.caerusdigital` (NEVER `com.caerus`)
+- **Company Name:** Caerus Digital, LLC
+- **Developer:** Matthew Elmore <matt@caerus.digital>
+- **Organization Identifier:** com.caerusdigital
+
+**Configuration Priority:**
+1. Project-specific `.project-config.json` (if exists in project root)
+2. Global `~/.claude-project-defaults.json` (home directory)
+3. Hardcoded fallback defaults (only if above don't exist)
+
+**When creating new projects or apps:**
+- ALWAYS read `~/.claude-project-defaults.json` first
+- Use values from config for bundle IDs, company info, copyright headers
+- NEVER hardcode `com.caerus.*` - always use `com.caerusdigital.*`
+- Scripts should load global config, then project config, then merge (project overrides global)
+
 ---
 
 ## Current Work Summary
