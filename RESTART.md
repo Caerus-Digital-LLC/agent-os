@@ -91,6 +91,37 @@ Organize all code files according to this mandatory structure:
 - NEVER hardcode `com.caerus.*` - always use `com.caerusdigital.*`
 - Scripts should load global config, then project config, then merge (project overrides global)
 
+### RESTART.md Continuous Maintenance
+
+**⚠️ CRITICAL: Keep RESTART.md updated continuously to prevent work loss**
+
+**Update RESTART.md throughout your work session:**
+- Update the file IMMEDIATELY after completing any significant task
+- Update after every major change, commit, or implementation milestone
+- Update when switching between different areas of work
+- **DO NOT wait until shutdown to update** - crashes can happen at any time
+- Think of RESTART.md as a continuous save point, not just a shutdown summary
+
+**What to update continuously:**
+- "Last Updated" timestamp (update on every modification)
+- "Current Work Summary" (what you're actively working on RIGHT NOW)
+- "Recent Changes" section (add new files/changes as you make them)
+- "Git Status" (update after commits/pushes)
+- "Next Steps" (refine as you complete tasks and discover new ones)
+
+**How to update:**
+- Read the current RESTART.md first
+- Preserve the "Persistent Coding Instructions" section EXACTLY as-is
+- Update only the sections that changed
+- Use Edit tool to make targeted updates rather than rewriting the entire file
+- Keep updates concise but informative
+
+**Why this matters:**
+- If you crash mid-session, the next agent can resume from the last update
+- Prevents loss of context, work, and decisions made during the session
+- Ensures continuity even with unexpected interruptions
+- Makes `/agent-os-restart` effective even after crashes
+
 ---
 
 ## Current Work Summary
