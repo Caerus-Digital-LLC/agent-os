@@ -1,6 +1,6 @@
 # Project Restart Context
 
-**Last Updated:** 2025-10-19 at 23:07 PST
+**Last Updated:** 2025-10-25 at 14:30 PST
 **Current Branch:** main
 **Repository:** https://github.com/Caerus-Digital-LLC/agent-os
 
@@ -126,33 +126,58 @@ Organize all code files according to this mandatory structure:
 
 ## Current Work Summary
 
-Just completed adding two new standard commands to the agent-os framework: `/agent-os-shutdown` and `/agent-os-restart`. These commands help manage context between work sessions by creating and reading comprehensive project snapshots.
+Just completed implementing the memory-engineer-agent system for agent-os. This is a comprehensive progress tracking system that automatically monitors project changes and keeps RESTART.md updated throughout work sessions.
+
+The memory-engineer-agent includes:
+- `/memory-update` - Manual RESTART.md updates with current progress
+- `/memory-commit` - Update RESTART.md and create git checkpoint
+- `/memory-start` - Start background monitoring service
+- `/memory-stop` - Stop background monitoring service
+- `memory-monitor.sh` - Background script that auto-updates RESTART.md every 5 minutes when changes are detected
 
 ## Recent Changes
 
-### Files Created
-- `profiles/default/commands/agent-os-shutdown/multi-agent/agent-os-shutdown.md`
-- `profiles/default/commands/agent-os-shutdown/single-agent/agent-os-shutdown.md`
-- `profiles/default/commands/agent-os-restart/multi-agent/agent-os-restart.md`
-- `profiles/default/commands/agent-os-restart/single-agent/agent-os-restart.md`
+### Files Created - Memory Engineer Agent
+- `profiles/default/commands/memory-update/multi-agent/memory-update.md`
+- `profiles/default/commands/memory-update/single-agent/memory-update.md`
+- `profiles/default/commands/memory-commit/multi-agent/memory-commit.md`
+- `profiles/default/commands/memory-commit/single-agent/memory-commit.md`
+- `profiles/default/commands/memory-start/multi-agent/memory-start.md`
+- `profiles/default/commands/memory-start/single-agent/memory-start.md`
+- `profiles/default/commands/memory-stop/multi-agent/memory-stop.md`
+- `profiles/default/commands/memory-stop/single-agent/memory-stop.md`
+- `scripts/memory-monitor.sh` (background monitoring service)
 
 ### What Was Accomplished
-1. Created directory structure for new commands
-2. Implemented multi-agent version of /agent-os-shutdown command
-3. Implemented single-agent version of /agent-os-shutdown command
-4. Implemented multi-agent version of /agent-os-restart command
-5. Implemented single-agent version of /agent-os-restart command
-6. Set up new git repository in agent-os directory
-7. Created GitHub repository at Caerus-Digital-LLC/agent-os
-8. Committed and pushed all changes
+1. Designed memory-engineer-agent architecture and workflow
+2. Created `/memory-update` command for both multi-agent and single-agent modes
+3. Created `/memory-commit` command for progress checkpoints with git commits
+4. Created `/memory-start` and `/memory-stop` commands to control background monitoring
+5. Implemented `memory-monitor.sh` background script that watches for changes every 5 minutes
+6. Made memory-monitor.sh executable
+7. Tested memory monitor status functionality
+8. Updated RESTART.md with current progress
+
+### Previous Work (Earlier Sessions)
+- Created `/agent-os-shutdown` and `/agent-os-restart` commands
+- Set up git repository and pushed to GitHub at Caerus-Digital-LLC/agent-os
+- Established persistent coding instructions system
 
 ## Git Status
 
 **Branch:** main
-**Status:** Clean working tree - all changes committed and pushed
-**Last Commit:** ea1fc79 "Add /agent-os-shutdown and /agent-os-restart commands"
+**Status:** Working tree has uncommitted changes
+**Last Commit:** 841ddf3 "Add continuous maintenance instructions to RESTART.md persistent section"
 **Remote:** origin (https://github.com/Caerus-Digital-LLC/agent-os.git)
 **Tracking:** origin/main (up to date)
+
+**Uncommitted Changes:**
+- Modified: RESTART.md (updated with memory-engineer-agent progress)
+- New: profiles/default/commands/memory-commit/ (multi-agent and single-agent)
+- New: profiles/default/commands/memory-start/ (multi-agent and single-agent)
+- New: profiles/default/commands/memory-stop/ (multi-agent and single-agent)
+- New: profiles/default/commands/memory-update/ (multi-agent and single-agent)
+- New: scripts/memory-monitor.sh (background monitoring service)
 
 ## Repository Structure
 
@@ -188,16 +213,35 @@ agent-os/
 - **Status:** Active development
 - **Current Version:** 2.0.5
 
-### New Commands Status
-- ✅ `/agent-os-shutdown` - COMPLETE
-  - Creates RESTART.md with comprehensive project context
-  - Captures current work, git status, recent changes, and next steps
-  - Supports both multi-agent (Claude Code, Cursor) and single-agent (ChatGPT, Claude) modes
+### Commands Status
 
+**Session Management:**
+- ✅ `/agent-os-shutdown` - COMPLETE
 - ✅ `/agent-os-restart` - COMPLETE
-  - Reads RESTART.md and provides comprehensive restart summary
-  - Helps resume work exactly where it was left off
-  - Recommends specific next steps based on context
+
+**Memory Engineer Agent (NEW):**
+- ✅ `/memory-update` - COMPLETE
+  - Manually updates RESTART.md with current progress
+  - Preserves persistent coding instructions
+  - Updates timestamp, work summary, changes, git status, and next steps
+
+- ✅ `/memory-commit` - COMPLETE
+  - Updates RESTART.md AND creates git commit checkpoint
+  - Combines progress tracking with version control
+  - Creates meaningful "Progress checkpoint" commits
+
+- ✅ `/memory-start` - COMPLETE
+  - Starts background monitoring service
+  - Auto-updates RESTART.md every 5 minutes when changes detected
+
+- ✅ `/memory-stop` - COMPLETE
+  - Stops background monitoring service
+  - Shows final statistics and activity
+
+- ✅ `memory-monitor.sh` - COMPLETE
+  - Background script that monitors for git commits, file changes
+  - Automatically updates RESTART.md when significant changes occur
+  - Logs all activity for transparency
 
 ### Repository Setup
 - ✅ Separate git repository created in `/Users/matthewelmore/agent-os`
@@ -207,14 +251,25 @@ agent-os/
 
 ## Next Steps
 
-1. **Test the new commands in an actual project**
-   - Install agent-os in a test project or existing project
-   - Run `/agent-os-shutdown` to create a RESTART.md
-   - Close the session, then run `/agent-os-restart` to verify it works correctly
+1. **Commit the memory-engineer-agent to git**
+   - Stage all new memory command files
+   - Stage updated RESTART.md
+   - Create commit with descriptive message
+   - Push to GitHub repository
 
-2. **Update documentation**
-   - Consider adding documentation about the new commands to Instructions.md
-   - Update README.md to mention the new commands
+2. **Test the memory commands in a real project**
+   - Install agent-os in a test project
+   - Try `/memory-update` to update RESTART.md manually
+   - Try `/memory-commit` to create a progress checkpoint
+   - Try `/memory-start` to start background monitoring
+   - Verify monitor updates RESTART.md automatically
+   - Try `/memory-stop` to stop monitoring
+
+3. **Create documentation**
+   - Update README.md to mention memory-engineer-agent
+   - Add usage examples for the new commands
+   - Document the background monitoring service
+   - Consider adding to Instructions.md
 
 3. **Consider additional features**
    - Add automatic RESTART.md updates when commands complete
